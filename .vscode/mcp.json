@@ -1,0 +1,40 @@
+{
+  // =========================================================================
+  // MCP Server Configuration for GitHub Copilot
+  // =========================================================================
+  // These servers appear as tools in Copilot Chat (Agent mode).
+  // Open Command Palette → "MCP: List Servers" to start/stop/restart them.
+  //
+  // Each Python server loads credentials from agent/.env itself at startup.
+  // =========================================================================
+
+  "servers": {
+
+    // --- Zoho Desk MCP Server (custom, local Python) ---
+    "zoho_desk": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["${workspaceFolder}/zoho_desk_mcp_server.py"],
+      "envFile": "${workspaceFolder}/agent/.env"
+
+    },
+
+    // --- Zoho Analytics MCP Server (custom, local Python) ---
+    "zoho_analytics": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["${workspaceFolder}/ZA MCP File/main.py"],
+      "envFile": "${workspaceFolder}/agent/.env"
+
+    },
+
+    // --- RAG Knowledge Base MCP Server (custom, local Python) ---
+    "rag_knowledge_base": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["${workspaceFolder}/rag_mcp_server.py"],
+      "envFile": "${workspaceFolder}/agent/.env"
+
+    }
+  }
+}
